@@ -27,7 +27,7 @@ dnf update --assumeyes &&
 	dnf update --assumeyes &&
 	dnf config-manager --assumeyes --add-repo https://download.docker.com/linux/fedora/docker-ce.repo &&
 	dnf update --assumeyes &&
-	dnf config-manager --enable docker-ce-edge
+	dnf config-manager --assumeyes --enable docker-ce-edge
 	dnf update --assumeyes &&
 	dnf makecache --assumeyes fast &&
 	dnf install docker-ce &&
