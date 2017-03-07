@@ -30,6 +30,6 @@ dnf update --assumeyes &&
 	dnf config-manager --assumeyes --enable docker-ce-edge
 	dnf update --assumeyes &&
 	dnf makecache --assumeyes fast &&
-	dnf install docker-ce &&
+	dnf install --assumeyes docker-ce &&
 	dnf update --assumeyes &&
 	dnf clean all
