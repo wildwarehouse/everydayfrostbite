@@ -1,4 +1,4 @@
-<!--
+#!/bin/sh
 # Copyright © (C) 2017 Emory Merryman <emory.merryman@gmail.com>
 #   This file is part of everydayfrostbite.
 #
@@ -14,20 +14,22 @@
 #
 #   You should have received a copy of the GNU General Public License
 #   along with everydayfrostbite.  If not, see <http://www.gnu.org/licenses/>.
--->
-# everydayfrostbite
 
-## Usage
-
-```
-docker \
-	run \
-	--interactive \
-	--tty \
-	--rm \
-	--volume /tmp/.X11-unix:/tmp/.X11-unix:ro \
-	--net host \
-	--env DISPLAY \
-	--env LANG \
-	wildwarehouse/everydayfrostbite:b5200eec80b37f092849378d0ad9114357f00b19
-```
+dnf update --assumeyes &&
+	dnf install --assumeyes emacs* &&
+	dnf install --assumeyes firefox &&
+	dnf install --assumeyes meld &&
+	dnf install --assumeyes git &&
+	dnf install --assumeyes gnome-terminal &&
+	dnf install --assumeyes gnupg &&
+	dnf install --assumeyes pass &&
+	dnf install --assumeyes dnf-plugins-core &&
+	dnf update --assumeyes &&
+	dnf config-manager --assumeyes --add-repo https://download.docker.com/linux/fedora/docker-ce.repo &&
+	dnf update --assumeyes &&
+	dnf config-manager --assumeyes --enable docker-ce-edge
+	dnf update --assumeyes &&
+	dnf makecache --assumeyes fast &&
+	dnf install --assumeyes docker-ce &&
+	dnf update --assumeyes &&
+	dnf clean all

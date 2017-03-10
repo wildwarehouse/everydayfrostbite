@@ -1,4 +1,3 @@
-<!--
 # Copyright © (C) 2017 Emory Merryman <emory.merryman@gmail.com>
 #   This file is part of everydayfrostbite.
 #
@@ -14,20 +13,9 @@
 #
 #   You should have received a copy of the GNU General Public License
 #   along with everydayfrostbite.  If not, see <http://www.gnu.org/licenses/>.
--->
-# everydayfrostbite
-
-## Usage
-
-```
-docker \
-	run \
-	--interactive \
-	--tty \
-	--rm \
-	--volume /tmp/.X11-unix:/tmp/.X11-unix:ro \
-	--net host \
-	--env DISPLAY \
-	--env LANG \
-	wildwarehouse/everydayfrostbite:b5200eec80b37f092849378d0ad9114357f00b19
-```
+FROM fedora:25
+MAINTAINER Emory Merryman emory.merryman@gmail.com
+COPY run.sh entrypoint.sh /opt/docker/
+RUN ["/usr/bin/sh", "/opt/docker/run.sh"]
+ENTRYPOINT ["/usr/bin/sh", "/opt/docker/entrypoint.sh"]
+CMD []
