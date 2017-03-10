@@ -16,3 +16,18 @@
 #   along with everydayfrostbite.  If not, see <http://www.gnu.org/licenses/>.
 -->
 # everydayfrostbite
+
+## Usage
+
+```
+docker \
+	run \
+	--interactive \
+	--tty \
+	--rm \
+	--volume /tmp/.X11-unix:/tmp/.X11-unix:ro \
+	--net host \
+	--env DISPLAY \
+	--env LANG \
+	wildwarehouse/everydayfrostbite:b5200eec80b37f092849378d0ad9114357f00b19
+```
